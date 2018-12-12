@@ -1,5 +1,9 @@
 package de.oliverpabst.mergesort;
 
+/**
+ * TODO: Von T auf KeyValue-Paare umstellen
+ */
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
