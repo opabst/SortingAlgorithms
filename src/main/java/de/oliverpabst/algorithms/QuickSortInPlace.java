@@ -1,4 +1,4 @@
-package de.oliverpabst.mergesort;
+package de.oliverpabst.algorithms;
 
 /**
  * TODO: Von T auf KeyValue umstellen
@@ -51,8 +51,8 @@ public class QuickSortInPlace<T> {
         unsortedSequence.swap(unsortedSequence.get(leftIndex), unsortedSequence.get(rightBound));
 
         // rekursiv fortfahren
-        quicksort(unsortedSequence, leftBound, leftIndex-1);
-        quicksort(unsortedSequence, leftIndex+1, rightBound);
+        quickSort(unsortedSequence, leftBound, leftIndex-1);
+        quickSort(unsortedSequence, leftIndex+1, rightBound);
 
         sortedSequence = unsortedSequence;
     }

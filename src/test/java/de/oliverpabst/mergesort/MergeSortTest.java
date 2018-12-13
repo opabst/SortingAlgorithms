@@ -1,6 +1,6 @@
 package de.oliverpabst.mergesort;
 
-import org.junit.Before;
+import de.oliverpabst.algorithms.MergeSort;
 import org.junit.Test;
 
 import java.util.ArrayList;

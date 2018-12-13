@@ -1,4 +1,4 @@
-package de.oliverpabst.mergesort;
+package de.oliverpabst.algorithms;
 
 /**
  * TODO: Von T auf KeyValue-Paare umstellen
