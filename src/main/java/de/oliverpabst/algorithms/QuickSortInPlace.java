@@ -1,54 +1,55 @@
 package de.oliverpabst.algorithms;
 
-/**
- * TODO: Von T auf KeyValue umstellen
- */
-
+import de.oliverpabst.model.KeyValuePair;
 import java.util.ArrayList;
 
-public class QuickSortInPlace<T> {
+public class QuickSortInPlace {
 
-    private ArrayList<T> sortedSequence;
+    private ArrayList<KeyValuePair> sortedSequence;
 
-    public QuickSortInPlace(ArrayList<T> unsortedSequence) {
+    public QuickSortInPlace(ArrayList<KeyValuePair> unsortedSequence) {
         if(unsortedSequence.size() >= 2) {
             quickSort(unsortedSequence, 0, unsortedSequence.size()-1);
         }
     }
 
-    public ArrayList<T> getSortedSequence() {
+    public ArrayList<KeyValuePair> getSortedSequence() {
         return sortedSequence;
     }
 
-    private void quickSort(ArrayList<T> unsortedSequence, Integer leftBound, Integer rightBound) {
+    private void quickSort(ArrayList<KeyValuePair> unsortedSequence, Integer leftBound, Integer rightBound) {
         if(leftBound >= rightBound) {
             return;
         }
 
-        T pivot = unsortedSequence.get(rightBound);
+        Integer pivot = unsortedSequence.get(rightBound).getKey();
 
         Integer leftIndex = leftBound;
         Integer rightIndex = rightBound;
 
         while (leftIndex <= rightIndex) {
-            while (leftIndex <= rightIndex && unsortedSequence.get(leftIndex) <= pivot) {
+            while (leftIndex <= rightIndex && unsortedSequence.get(leftIndex).getKey() <= pivot) {
                 leftIndex++;
             }
 
-            while (leftIndex <= rightIndex && unsortedSequence.get(rightIndex) >= pivot) {
+            while (leftIndex <= rightIndex && unsortedSequence.get(rightIndex).getKey() >= pivot) {
                 rightIndex++;
             }
 
             // Vertauschen und Indexe weiterschieben falls grüßer oder kleiner als Pivot
             if(leftIndex < rightIndex) {
-                unsortedSequence.swap(unsortedSequence.get(leftIndex), unsortedSequence.get(rightIndex));
+                KeyValuePair temp = unsortedSequence.get(leftIndex);
+                unsortedSequence.set(leftIndex, unsortedSequence.get(rightIndex));
+                unsortedSequence.set(rightIndex, temp);
                 leftIndex++;
                 rightIndex++;
             }
         }
 
         // Pivot vertauschen mit Schlüssel auf leftIndex
-        unsortedSequence.swap(unsortedSequence.get(leftIndex), unsortedSequence.get(rightBound));
+        KeyValuePair temp = unsortedSequence.get(leftIndex);
+        unsortedSequence.set(leftIndex, unsortedSequence.get(rightBound));
+        unsortedSequence.set(rightBound, temp);
 
         // rekursiv fortfahren
         quickSort(unsortedSequence, leftBound, leftIndex-1);

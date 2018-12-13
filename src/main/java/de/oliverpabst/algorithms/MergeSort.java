@@ -1,7 +1,7 @@
 package de.oliverpabst.algorithms;
 
 /**
- * TODO: Von T auf KeyValue-Paare umstellen
+ * TODO: Von T auf KeyValuePair-Paare umstellen
  */
 
 import java.util.ArrayDeque;

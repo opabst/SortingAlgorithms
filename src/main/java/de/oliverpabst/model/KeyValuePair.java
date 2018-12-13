@@ -1,10 +1,10 @@
 package de.oliverpabst.model;
 
-public class KeyValue<T> {
+public class KeyValuePair<T> {
     private Integer key;
     private T value;
 
-    public KeyValue(Integer _key, T _value) {
+    public KeyValuePair(Integer _key, T _value) {
         key = _key;
         value = _value;
     }
